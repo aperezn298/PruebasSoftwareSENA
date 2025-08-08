@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva - Pruebas de Software</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <!-- Highlight.js para syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="bi bi-bug-fill me-2"></i>Pruebas de Software
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Botón para sidebar en móvil -->
+            <button class="btn btn-outline-light d-lg-none ms-2" type="button" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" data-section="home">
+                            <i class="bi bi-house-fill me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#capitulo1" data-section="capitulo1">
+                            <i class="bi bi-1-circle me-1"></i>Conceptos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#capitulo2" data-section="capitulo2">
+                            <i class="bi bi-2-circle me-1"></i>Pruebas Manuales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#capitulo3" data-section="capitulo3">
+                            <i class="bi bi-3-circle me-1"></i>Pruebas Automáticas
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress" style="height: 4px;">
+            <div class="progress-bar bg-success" id="progressBar" role="progressbar" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 sidebar">
+                <div class="position-sticky pt-3">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Contenido</span>
+                    </h6>
+                    <ul class="nav flex-column mb-2" id="chapterNavigation">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home" data-section="home">
+                                <i class="bi bi-house-door me-2"></i>Página Principal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#capitulo1" data-section="capitulo1">
+                                <i class="bi bi-book me-2"></i>Cap. 1: Conceptos Básicos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#capitulo2" data-section="capitulo2">
+                                <i class="bi bi-hand-index me-2"></i>Cap. 2: Pruebas Manuales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#capitulo3" data-section="capitulo3">
+                                <i class="bi bi-gear me-2"></i>Cap. 3: Pruebas Automáticas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <!-- Home Section -->
+                <section id="home" class="content-section active">
+                    <div class="hero-section text-center py-5">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold text-primary mb-4">
+                                <i class="bi bi-shield-check me-3"></i>
+                                Guía Interactiva de Pruebas de Software
+                            </h1>
+                            <p class="lead mb-5">
+                                Aprende los fundamentos y técnicas avanzadas de testing de software
+                                a través de una experiencia interactiva y práctica.
+                            </p>
+                            
+                            <div class="row g-4 mt-5">
+                                <div class="col-md-4">
+                                    <div class="card h-100 shadow-sm chapter-card" data-target="capitulo1">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-lightbulb display-1 text-warning mb-3"></i>
+                                            <h4 class="card-title">Conceptos Básicos</h4>
+                                            <p class="card-text">
+                                                Fundamentos teóricos, tipos de pruebas y metodologías esenciales.
+                                            </p>
+                                            <button class="btn btn-primary">Comenzar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 shadow-sm chapter-card" data-target="capitulo2">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-person-check display-1 text-info mb-3"></i>
+                                            <h4 class="card-title">Pruebas Manuales</h4>
+                                            <p class="card-text">
+                                                Técnicas de testing manual, casos de prueba y documentación.
+                                            </p>
+                                            <button class="btn btn-primary">Explorar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card h-100 shadow-sm chapter-card" data-target="capitulo3">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-robot display-1 text-success mb-3"></i>
+                                            <h4 class="card-title">Pruebas Automáticas</h4>
+                                            <p class="card-text">
+                                                Automatización, herramientas y frameworks de testing.
+                                            </p>
+                                            <button class="btn btn-primary">Descubrir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 1: Conceptos -->
+                <section id="capitulo1" class="content-section">
+                    <div class="chapter-header">
+                        <h1 class="display-5 fw-bold text-primary mb-4">
+                            <i class="bi bi-1-circle-fill me-3"></i>
+                            Conceptos Básicos de Pruebas de Software
+                        </h1>
+                        <div class="chapter-progress mb-4">
+                            <span class="badge bg-primary">Capítulo 1 de 3</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-content">
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            <div>
+                                En este capítulo aprenderás los fundamentos teóricos de las pruebas de software.
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2 class="h3 mb-4">Introducción a las Pruebas de Software</h2>
+                                <p class="lead">
+                                    Las pruebas de software son un proceso sistemático de evaluación y verificación de que una aplicación 
+                                    funciona según lo esperado y cumple con los requisitos especificados. Es una actividad crítica 
+                                    en el desarrollo de software que garantiza la calidad y confiabilidad del producto final.
+                                </p>
+
+                                <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                    <div>
+                                        <strong>Importante:</strong> Las pruebas no pueden probar la ausencia de defectos, solo su presencia. 
+                                        El objetivo es encontrar tantos defectos como sea posible con los recursos disponibles.
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Objetivos y Conceptos Fundamentales</h3>
+                                <ul class="list-group list-group-flush mb-4">
+                                    <li class="list-group-item">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <strong>Encontrar defectos:</strong> Identificar errores antes del lanzamiento
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <strong>Verificar requisitos:</strong> Confirmar que el software cumple las especificaciones
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <strong>Validar funcionalidad:</strong> Asegurar que el software hace lo que el usuario necesita
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <strong>Reducir riesgos:</strong> Minimizar fallos en producción y costos asociados
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                        <strong>Mejorar calidad:</strong> Asegurar confiabilidad, usabilidad y rendimiento
+                                    </li>
+                                </ul>
+
+                                <h3 class="h4 mt-5 mb-3">Clasificación de Pruebas</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-primary mb-3">
+                                            <div class="card-header bg-primary text-white">
+                                                <h5 class="mb-0"><i class="bi bi-lightning-fill me-2"></i>Por Ejecución</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="card-title text-primary">Pruebas Estáticas</h6>
+                                                <p class="card-text small">Análisis del código sin ejecutarlo. Incluye revisiones de código, inspecciones y análisis estático.</p>
+                                                <h6 class="card-title text-primary">Pruebas Dinámicas</h6>
+                                                <p class="card-text small">Ejecución real del código con datos de entrada para observar comportamientos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-success mb-3">
+                                            <div class="card-header bg-success text-white">
+                                                <h5 class="mb-0"><i class="bi bi-gear-fill me-2"></i>Por Enfoque</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="card-title text-success">Pruebas Funcionales</h6>
+                                                <p class="card-text small">Verifican QUÉ hace el sistema. Se centran en los requisitos funcionales y comportamientos esperados.</p>
+                                                <h6 class="card-title text-success">Pruebas No Funcionales</h6>
+                                                <p class="card-text small">Verifican CÓMO funciona el sistema. Incluyen rendimiento, usabilidad, seguridad, etc.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Importancia en el Ciclo de Vida del Software</h3>
+                                <div class="timeline mb-5">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-primary"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">Análisis y Diseño</h6>
+                                            <p class="small text-muted">Revisión de requisitos, análisis de riesgos, planificación de pruebas.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-info"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">Desarrollo</h6>
+                                            <p class="small text-muted">Pruebas unitarias, revisiones de código, integración continua.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-warning"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">Integración</h6>
+                                            <p class="small text-muted">Pruebas de integración, sistema, rendimiento y aceptación.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-success"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">Producción</h6>
+                                            <p class="small text-muted">Monitoreo, pruebas de regresión, mantenimiento.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Errores, Defectos y Fallas</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-4">
+                                        <div class="card border-danger h-100">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-bug-fill text-danger fs-1 mb-3"></i>
+                                                <h6 class="card-title text-danger">ERROR</h6>
+                                                <p class="card-text small">Mistake humano durante desarrollo. Causa raíz de problemas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card border-warning h-100">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-exclamation-triangle-fill text-warning fs-1 mb-3"></i>
+                                                <h6 class="card-title text-warning">DEFECTO</h6>
+                                                <p class="card-text small">Manifestación del error en el código. También llamado "bug".</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card border-info h-100">
+                                            <div class="card-body text-center">
+                                                <i class="bi bi-x-circle-fill text-info fs-1 mb-3"></i>
+                                                <h6 class="card-title text-info">FALLA</h6>
+                                                <p class="card-text small">Desviación del comportamiento esperado durante ejecución.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-danger d-flex align-items-center mb-4" role="alert">
+                                    <i class="bi bi-graph-up-arrow me-2"></i>
+                                    <div>
+                                        <strong>Costos de Detección Tardía:</strong> El costo de corregir un defecto aumenta exponencialmente 
+                                        conforme avanza el ciclo de desarrollo. Un defecto que cuesta $1 corregir en desarrollo, 
+                                        puede costar $100 en producción.
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Niveles de Prueba</h3>
+                                <div class="accordion" id="testLevelsAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#unitTesting">
+                                                <i class="bi bi-gear me-2"></i>Pruebas Unitarias
+                                            </button>
+                                        </h2>
+                                        <div id="unitTesting" class="accordion-collapse collapse show" data-bs-parent="#testLevelsAccordion">
+                                            <div class="accordion-body">
+                                                <strong>Nivel más granular de testing.</strong> Verifican el funcionamiento de componentes individuales 
+                                                (funciones, métodos, clases) de forma aislada.
+                                                <ul class="mt-2 small">
+                                                    <li>Ejecutadas por desarrolladores</li>
+                                                    <li>Rápidas y automatizables</li>
+                                                    <li>Base de la pirámide de pruebas</li>
+                                                    <li>Utilizan mocks y stubs</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#integrationTesting">
+                                                <i class="bi bi-puzzle me-2"></i>Pruebas de Integración
+                                            </button>
+                                        </h2>
+                                        <div id="integrationTesting" class="accordion-collapse collapse" data-bs-parent="#testLevelsAccordion">
+                                            <div class="accordion-body">
+                                                <strong>Verifican la interacción entre componentes.</strong> Evalúan las interfaces y comunicación 
+                                                entre módulos integrados.
+                                                <div class="row mt-3">
+                                                    <div class="col-6">
+                                                        <h6 class="small fw-bold">Big Bang</h6>
+                                                        <p class="small">Integración de todos los componentes simultáneamente.</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h6 class="small fw-bold">Incremental</h6>
+                                                        <p class="small">Top-down, Bottom-up o Sandwich approach.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#systemTesting">
+                                                <i class="bi bi-laptop me-2"></i>Pruebas de Sistema
+                                            </button>
+                                        </h2>
+                                        <div id="systemTesting" class="accordion-collapse collapse" data-bs-parent="#testLevelsAccordion">
+                                            <div class="accordion-body">
+                                                <strong>Validación del sistema completo.</strong> Evalúan el comportamiento end-to-end 
+                                                en un entorno que simula producción.
+                                                <ul class="mt-2 small">
+                                                    <li>Pruebas funcionales completas</li>
+                                                    <li>Pruebas de rendimiento y carga</li>
+                                                    <li>Pruebas de seguridad y usabilidad</li>
+                                                    <li>Compatibilidad y configuración</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acceptanceTesting">
+                                                <i class="bi bi-check-square me-2"></i>Pruebas de Aceptación
+                                            </button>
+                                        </h2>
+                                        <div id="acceptanceTesting" class="accordion-collapse collapse" data-bs-parent="#testLevelsAccordion">
+                                            <div class="accordion-body">
+                                                <strong>Validación final antes del despliegue.</strong> Confirman que el sistema satisface 
+                                                los criterios de aceptación del negocio.
+                                                <div class="row mt-3">
+                                                    <div class="col-6">
+                                                        <h6 class="small fw-bold">UAT (User)</h6>
+                                                        <p class="small">Realizadas por usuarios finales reales.</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h6 class="small fw-bold">BAT (Business)</h6>
+                                                        <p class="small">Enfocadas en procesos de negocio.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Estrategias de Prueba</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-dark h-100">
+                                            <div class="card-header bg-dark text-white">
+                                                <h5 class="mb-0"><i class="bi bi-square-fill me-2"></i>Caja Negra</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    <strong>Sin conocimiento del código interno.</strong> Se enfoca en entradas y salidas esperadas.
+                                                </p>
+                                                <h6 class="small fw-bold text-primary">Técnicas:</h6>
+                                                <ul class="small">
+                                                    <li>Partición de equivalencia</li>
+                                                    <li>Análisis de valores límite</li>
+                                                    <li>Tablas de decisión</li>
+                                                    <li>Pruebas de estado</li>
+                                                </ul>
+                                                <h6 class="small fw-bold text-success">Ventajas:</h6>
+                                                <ul class="small">
+                                                    <li>Perspectiva del usuario</li>
+                                                    <li>Independiente de implementación</li>
+                                                    <li>Encuentra funciones faltantes</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-light h-100">
+                                            <div class="card-header bg-light">
+                                                <h5 class="mb-0"><i class="bi bi-square me-2"></i>Caja Blanca</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    <strong>Con conocimiento completo del código.</strong> Examina estructura interna y lógica.
+                                                </p>
+                                                <h6 class="small fw-bold text-primary">Técnicas:</h6>
+                                                <ul class="small">
+                                                    <li>Cobertura de sentencias</li>
+                                                    <li>Cobertura de ramas</li>
+                                                    <li>Cobertura de condiciones</li>
+                                                    <li>Cobertura de caminos</li>
+                                                </ul>
+                                                <h6 class="small fw-bold text-success">Ventajas:</h6>
+                                                <ul class="small">
+                                                    <li>Cobertura completa del código</li>
+                                                    <li>Optimización de casos de prueba</li>
+                                                    <li>Identifica código no usado</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-secondary mb-4">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h5 class="mb-0"><i class="bi bi-square-half me-2"></i>Caja Gris (Gray Box)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <p class="card-text">
+                                                    <strong>Combinación de ambas estrategias.</strong> Conocimiento limitado de la estructura interna 
+                                                    combinado con testing funcional. Ideal para pruebas de integración y sistema.
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="small fw-bold text-primary">Aplicaciones:</h6>
+                                                <ul class="small">
+                                                    <li>Pruebas de regresión</li>
+                                                    <li>Testing de APIs</li>
+                                                    <li>Pruebas de penetración</li>
+                                                    <li>Integración de sistemas</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">🎯 Principios Fundamentales del Testing</h3>
+                                <div class="alert alert-primary d-flex align-items-center mb-3" role="alert">
+                                    <i class="bi bi-lightbulb-fill me-2"></i>
+                                    <div>
+                                        <strong>Los 7 Principios ISTQB:</strong> Fundamentos universales que guían las mejores prácticas de testing.
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-1-circle-fill me-2"></i>Testing muestra la presencia de defectos
+                                                </h6>
+                                                <p class="card-text small">Las pruebas pueden mostrar que existen defectos, pero no pueden probar que no los hay.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-3-circle-fill me-2"></i>Testing temprano ahorra tiempo y dinero
+                                                </h6>
+                                                <p class="card-text small">Las actividades de testing deben comenzar lo antes posible en el ciclo de vida del software.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-5-circle-fill me-2"></i>Los defectos se agrupan
+                                                </h6>
+                                                <p class="card-text small">Un pequeño número de módulos suele contener la mayoría de defectos (Principio de Pareto 80/20).</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-7-circle-fill me-2"></i>Testing depende del contexto
+                                                </h6>
+                                                <p class="card-text small">Las pruebas se realizan de manera diferente según el contexto (web, móvil, crítico, etc.).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-2-circle-fill me-2"></i>Testing exhaustivo es imposible
+                                                </h6>
+                                                <p class="card-text small">Es imposible probar todo. El testing debe enfocarse en riesgos y prioridades.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-4-circle-fill me-2"></i>Cuidado con la paradoja del pesticida
+                                                </h6>
+                                                <p class="card-text small">Los mismos casos de prueba ejecutados repetidamente dejan de encontrar nuevos defectos.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card border-info mb-3">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-6-circle-fill me-2"></i>Ausencia de errores es una falacia
+                                                </h6>
+                                                <p class="card-text small">Encontrar y corregir defectos no ayuda si el sistema es inutilizable o no cumple expectativas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">📊 Técnicas de Diseño de Pruebas</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-warning mb-3">
+                                            <div class="card-header bg-warning text-dark">
+                                                <h6 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>Partición de Equivalencia</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text small">
+                                                    Divide los datos de entrada en clases donde todos los valores deberían comportarse de manera similar.
+                                                </p>
+                                                <div class="bg-light p-2 rounded small">
+                                                    <strong>Ejemplo:</strong> Campo edad (0-17: menor, 18-65: adulto, 66+: senior)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-warning mb-3">
+                                            <div class="card-header bg-warning text-dark">
+                                                <h6 class="mb-0"><i class="bi bi-arrows-expand me-2"></i>Análisis de Valores Límite</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text small">
+                                                    Se enfoca en probar los valores en los bordes de las clases de equivalencia.
+                                                </p>
+                                                <div class="bg-light p-2 rounded small">
+                                                    <strong>Ejemplo:</strong> Probar valores 17, 18, 65, 66 para el ejemplo anterior
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-success mb-3">
+                                            <div class="card-header bg-success text-white">
+                                                <h6 class="mb-0"><i class="bi bi-table me-2"></i>Tablas de Decisión</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text small">
+                                                    Representan combinaciones de condiciones y sus acciones correspondientes en formato tabular.
+                                                </p>
+                                                <div class="table-responsive">
+                                                    <table class="table table-sm table-bordered small">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Condición</th>
+                                                                <th>R1</th>
+                                                                <th>R2</th>
+                                                                <th>R3</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Usuario válido</td>
+                                                                <td>✓</td>
+                                                                <td>✓</td>
+                                                                <td>✗</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Password válido</td>
+                                                                <td>✓</td>
+                                                                <td>✗</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr class="table-success">
+                                                                <td><strong>Acción</strong></td>
+                                                                <td>Login</td>
+                                                                <td>Error</td>
+                                                                <td>Error</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-success mb-3">
+                                            <div class="card-header bg-success text-white">
+                                                <h6 class="mb-0"><i class="bi bi-diagram-2 me-2"></i>Transición de Estados</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text small">
+                                                    Modela el comportamiento del sistema como una serie de estados y transiciones.
+                                                </p>
+                                                <div class="text-center">
+                                                    <div class="d-inline-flex align-items-center small">
+                                                        <span class="badge bg-secondary me-2">Bloqueado</span>
+                                                        <i class="bi bi-arrow-right me-2"></i>
+                                                        <span class="badge bg-primary me-2">Activo</span>
+                                                        <i class="bi bi-arrow-right me-2"></i>
+                                                        <span class="badge bg-secondary">Inactivo</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">🔄 Proceso de Testing (STLC)</h3>
+                                <div class="timeline mb-5">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-primary"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">1. Análisis de Requisitos</h6>
+                                            <p class="small text-muted">Revisión y análisis de requisitos, identificación de criterios de prueba.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-info"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">2. Planificación de Pruebas</h6>
+                                            <p class="small text-muted">Estrategia, cronograma, recursos, herramientas y métricas.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-warning"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">3. Diseño de Casos de Prueba</h6>
+                                            <p class="small text-muted">Creación detallada de casos de prueba y datos necesarios.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-secondary"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">4. Configuración del Entorno</h6>
+                                            <p class="small text-muted">Preparación de hardware, software y datos de prueba.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-success"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">5. Ejecución de Pruebas</h6>
+                                            <p class="small text-muted">Ejecutar casos, reportar defectos, registrar resultados.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-dark"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="fw-bold">6. Cierre del Ciclo</h6>
+                                            <p class="small text-muted">Evaluación de criterios de salida, documentación de lecciones aprendidas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">👥 Roles y Responsabilidades</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-primary h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-primary">
+                                                    <i class="bi bi-person-badge me-2"></i>Test Manager/Líder
+                                                </h6>
+                                                <ul class="card-text small">
+                                                    <li>Planificación y estrategia de pruebas</li>
+                                                    <li>Gestión de recursos y cronogramas</li>
+                                                    <li>Comunicación con stakeholders</li>
+                                                    <li>Reportes ejecutivos</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-success h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-success">
+                                                    <i class="bi bi-person-check me-2"></i>Test Analyst
+                                                </h6>
+                                                <ul class="card-text small">
+                                                    <li>Análisis de requisitos de prueba</li>
+                                                    <li>Diseño de casos de prueba</li>
+                                                    <li>Especificación de datos de prueba</li>
+                                                    <li>Evaluación de cobertura</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-warning h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-warning">
+                                                    <i class="bi bi-person-gear me-2"></i>Test Engineer
+                                                </h6>
+                                                <ul class="card-text small">
+                                                    <li>Ejecución de pruebas manuales</li>
+                                                    <li>Automatización de casos de prueba</li>
+                                                    <li>Configuración de entornos</li>
+                                                    <li>Reporte de defectos</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-info h-100">
+                                            <div class="card-body">
+                                                <h6 class="card-title text-info">
+                                                    <i class="bi bi-code-slash me-2"></i>Developer in Test
+                                                </h6>
+                                                <ul class="card-text small">
+                                                    <li>Desarrollo de frameworks de prueba</li>
+                                                    <li>Herramientas de testing</li>
+                                                    <li>Integración CI/CD</li>
+                                                    <li>Soporte técnico avanzado</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">🐛 Gestión de Defectos</h3>
+                                <div class="card border-danger mb-4">
+                                    <div class="card-header bg-danger text-white">
+                                        <h6 class="mb-0"><i class="bi bi-arrow-repeat me-2"></i>Ciclo de Vida de un Defecto</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                    <span class="badge bg-secondary">New</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-warning">Assigned</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-info">In Progress</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-primary">Fixed</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-warning">Testing</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-success">Verified</span>
+                                                    <i class="bi bi-arrow-right text-muted"></i>
+                                                    <span class="badge bg-dark">Closed</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="small fw-bold">Estados Alternativos:</h6>
+                                                <span class="badge bg-secondary me-1">Rejected</span>
+                                                <span class="badge bg-secondary me-1">Duplicate</span>
+                                                <span class="badge bg-secondary">Deferred</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-danger mb-3">
+                                            <div class="card-header">
+                                                <h6 class="mb-0 text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Severity (Severidad)</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-unstyled small">
+                                                    <li><span class="badge bg-danger me-2">Critical</span>Sistema no funciona</li>
+                                                    <li><span class="badge bg-warning me-2">High</span>Funcionalidad clave afectada</li>
+                                                    <li><span class="badge bg-info me-2">Medium</span>Funcionalidad menor afectada</li>
+                                                    <li><span class="badge bg-secondary me-2">Low</span>Cosmético o sugerencia</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-warning mb-3">
+                                            <div class="card-header">
+                                                <h6 class="mb-0 text-warning"><i class="bi bi-flag-fill me-2"></i>Priority (Prioridad)</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-unstyled small">
+                                                    <li><span class="badge bg-danger me-2">P1</span>Arreglar inmediatamente</li>
+                                                    <li><span class="badge bg-warning me-2">P2</span>Arreglar antes del release</li>
+                                                    <li><span class="badge bg-info me-2">P3</span>Arreglar cuando sea posible</li>
+                                                    <li><span class="badge bg-secondary me-2">P4</span>Arreglar en futuras versiones</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">📈 Métricas de Testing</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-4">
+                                        <div class="card text-center h-100 border-primary">
+                                            <div class="card-body">
+                                                <i class="bi bi-bug fs-1 text-primary mb-2"></i>
+                                                <h6 class="card-title">Métricas de Defectos</h6>
+                                                <ul class="list-unstyled small text-start">
+                                                    <li>• Densidad de defectos</li>
+                                                    <li>• Tasa de escape</li>
+                                                    <li>• Efectividad de detección</li>
+                                                    <li>• Tiempo medio de resolución</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center h-100 border-success">
+                                            <div class="card-body">
+                                                <i class="bi bi-shield-check fs-1 text-success mb-2"></i>
+                                                <h6 class="card-title">Métricas de Cobertura</h6>
+                                                <ul class="list-unstyled small text-start">
+                                                    <li>• Cobertura de código</li>
+                                                    <li>• Cobertura de requisitos</li>
+                                                    <li>• Cobertura de ramas</li>
+                                                    <li>• Cobertura de condiciones</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card text-center h-100 border-info">
+                                            <div class="card-body">
+                                                <i class="bi bi-graph-up fs-1 text-info mb-2"></i>
+                                                <h6 class="card-title">Métricas de Progreso</h6>
+                                                <ul class="list-unstyled small text-start">
+                                                    <li>• Casos ejecutados vs planificados</li>
+                                                    <li>• Casos pasados vs fallidos</li>
+                                                    <li>• Velocidad de ejecución</li>
+                                                    <li>• ROI del testing</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">🛠️ Herramientas de Testing</h3>
+                                <div class="accordion mb-4" id="toolsAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#managementTools">
+                                                <i class="bi bi-kanban me-2"></i>Herramientas de Gestión
+                                            </button>
+                                        </h2>
+                                        <div id="managementTools" class="accordion-collapse collapse show" data-bs-parent="#toolsAccordion">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h6 class="small fw-bold text-primary">Test Management:</h6>
+                                                        <ul class="small">
+                                                            <li>TestRail, qTest, Zephyr</li>
+                                                            <li>Azure Test Plans</li>
+                                                            <li>TestLink, PractiTest</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h6 class="small fw-bold text-success">Bug Tracking:</h6>
+                                                        <ul class="small">
+                                                            <li>Jira, Bugzilla</li>
+                                                            <li>Azure DevOps</li>
+                                                            <li>GitHub Issues, Mantis</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#automationTools">
+                                                <i class="bi bi-robot me-2"></i>Herramientas de Automatización
+                                            </button>
+                                        </h2>
+                                        <div id="automationTools" class="accordion-collapse collapse" data-bs-parent="#toolsAccordion">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <h6 class="small fw-bold text-primary">Web UI:</h6>
+                                                        <ul class="small">
+                                                            <li>Selenium WebDriver</li>
+                                                            <li>Cypress, Playwright</li>
+                                                            <li>TestCafe, WebdriverIO</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6 class="small fw-bold text-success">API:</h6>
+                                                        <ul class="small">
+                                                            <li>Postman, REST Assured</li>
+                                                            <li>SoapUI, Insomnia</li>
+                                                            <li>Newman, Karate</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6 class="small fw-bold text-warning">Móvil:</h6>
+                                                        <ul class="small">
+                                                            <li>Appium, Espresso</li>
+                                                            <li>XCUITest, Detox</li>
+                                                            <li>Calabash, EarlGrey</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#performanceTools">
+                                                <i class="bi bi-speedometer2 me-2"></i>Herramientas de Rendimiento
+                                            </button>
+                                        </h2>
+                                        <div id="performanceTools" class="accordion-collapse collapse" data-bs-parent="#toolsAccordion">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h6 class="small fw-bold text-primary">Load Testing:</h6>
+                                                        <ul class="small">
+                                                            <li>JMeter, LoadRunner</li>
+                                                            <li>k6, Artillery</li>
+                                                            <li>Gatling, BlazeMeter</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h6 class="small fw-bold text-success">Monitoring:</h6>
+                                                        <ul class="small">
+                                                            <li>New Relic, AppDynamics</li>
+                                                            <li>Dynatrace, DataDog</li>
+                                                            <li>Grafana, Prometheus</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">⚠️ Gestión de Riesgos en Testing</h3>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-danger mb-3">
+                                            <div class="card-header bg-danger text-white">
+                                                <h6 class="mb-0"><i class="bi bi-shield-exclamation me-2"></i>Riesgos del Producto</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="card-text small mb-2">
+                                                    <li><strong>Funcionales:</strong> Cálculos incorrectos, flujos de trabajo defectuosos</li>
+                                                    <li><strong>No funcionales:</strong> Rendimiento pobre, seguridad vulnerable</li>
+                                                    <li><strong>Operacionales:</strong> Instalación compleja, incompatibilidad</li>
+                                                </ul>
+                                                <div class="alert alert-light mb-0 small">
+                                                    <strong>Impacto:</strong> Directamente afecta a usuarios finales y calidad del software.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-warning mb-3">
+                                            <div class="card-header bg-warning text-dark">
+                                                <h6 class="mb-0"><i class="bi bi-calendar-x me-2"></i>Riesgos del Proyecto</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="card-text small mb-2">
+                                                    <li><strong>Organizacionales:</strong> Falta de recursos, habilidades insuficientes</li>
+                                                    <li><strong>Técnicos:</strong> Herramientas inadecuadas, ambiente inestable</li>
+                                                    <li><strong>Proveedores:</strong> Dependencias externas, entregas tardías</li>
+                                                </ul>
+                                                <div class="alert alert-light mb-0 small">
+                                                    <strong>Impacto:</strong> Afecta la capacidad de ejecutar testing efectivamente.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-info mb-4">
+                                    <div class="card-header bg-info text-white">
+                                        <h6 class="mb-0"><i class="bi bi-bullseye me-2"></i>Testing Basado en Riesgos (RBT)</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <p class="card-text small">
+                                                    Enfoque que prioriza los esfuerzos de testing basándose en la evaluación de riesgos. 
+                                                    Se concentra más tiempo y recursos en áreas de mayor riesgo.
+                                                </p>
+                                                <div class="d-flex gap-3 small">
+                                                    <div>
+                                                        <strong class="text-primary">Probabilidad:</strong>
+                                                        <div>¿Qué tan probable es que ocurra?</div>
+                                                    </div>
+                                                    <div>
+                                                        <strong class="text-danger">Impacto:</strong>
+                                                        <div>¿Qué tan severas son las consecuencias?</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="text-center">
+                                                    <div class="small fw-bold mb-2">Matriz de Riesgo</div>
+                                                    <table class="table table-bordered table-sm">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="bg-danger text-white text-center">Alto</td>
+                                                                <td class="bg-danger text-white text-center">Alto</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="bg-warning text-center">Medio</td>
+                                                                <td class="bg-danger text-white text-center">Alto</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card bg-light">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">
+                                            <i class="bi bi-bookmark-fill me-2"></i>Conceptos Clave
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <dl>
+                                            <dt>Error</dt>
+                                            <dd class="small">Mistake humano que causa un defecto en el código.</dd>
+                                            
+                                            <dt>Defecto/Bug</dt>
+                                            <dd class="small">Manifestación del error en el código fuente.</dd>
+                                            
+                                            <dt>Falla</dt>
+                                            <dd class="small">Desviación del comportamiento esperado en ejecución.</dd>
+                                            
+                                            <dt>STLC</dt>
+                                            <dd class="small">Software Testing Life Cycle - proceso sistemático de testing.</dd>
+                                            
+                                            <dt>Severity</dt>
+                                            <dd class="small">Grado de impacto técnico de un defecto en el sistema.</dd>
+                                            
+                                            <dt>Priority</dt>
+                                            <dd class="small">Urgencia de negocio para resolver un defecto.</dd>
+                                            
+                                            <dt>RBT</dt>
+                                            <dd class="small">Risk-Based Testing - testing priorizado por riesgos.</dd>
+                                            
+                                            <dt>Cobertura</dt>
+                                            <dd class="small">Porcentaje del código ejercitado por las pruebas.</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title">¿Necesitas ayuda?</h6>
+                                        <p class="card-text small">
+                                            Revisa los conceptos las veces que necesites.
+                                        </p>
+                                        <button class="btn btn-outline-primary btn-sm" onclick="scrollToTop()">
+                                            <i class="bi bi-arrow-up"></i> Ir al inicio
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chapter-navigation mt-5">
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary" onclick="navigateToSection('home')">
+                                <i class="bi bi-arrow-left me-2"></i>Anterior
+                            </button>
+                            <button class="btn btn-primary" onclick="navigateToSection('capitulo2')">
+                                Siguiente<i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 2: Pruebas Manuales -->
+                <section id="capitulo2" class="content-section">
+                    <div class="chapter-header">
+                        <h1 class="display-5 fw-bold text-primary mb-4">
+                            <i class="bi bi-2-circle-fill me-3"></i>
+                            Pruebas Manuales de Software
+                        </h1>
+                        <div class="chapter-progress mb-4">
+                            <span class="badge bg-primary">Capítulo 2 de 3</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-content">
+                        <div class="alert alert-warning d-flex align-items-center" role="alert">
+                            <i class="bi bi-hand-index-thumb-fill me-2"></i>
+                            <div>
+                                Aprende técnicas de testing manual y cómo crear casos de prueba efectivos.
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2 class="h3 mb-4">¿Qué son las Pruebas Manuales?</h2>
+                                <p class="lead">
+                                    Las pruebas manuales son un proceso donde los testers ejecutan casos de prueba 
+                                    manualmente sin usar herramientas de automatización, simulando el comportamiento 
+                                    del usuario final.
+                                </p>
+
+                                <h3 class="h4 mt-5 mb-3">Características Principales</h3>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card border-success">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-success">
+                                                    <i class="bi bi-check-circle-fill me-2"></i>Ventajas
+                                                </h5>
+                                                <ul class="mb-0">
+                                                    <li>Flexibilidad y adaptabilidad</li>
+                                                    <li>Detección de problemas de UX</li>
+                                                    <li>Menores costos iniciales</li>
+                                                    <li>Intuición humana</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-warning">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-warning">
+                                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Desafíos
+                                                </h5>
+                                                <ul class="mb-0">
+                                                    <li>Tiempo y recursos intensivos</li>
+                                                    <li>Propensas a errores humanos</li>
+                                                    <li>Difíciles de repetir exactamente</li>
+                                                    <li>Escalabilidad limitada</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Proceso de Pruebas Manuales</h3>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-primary"></div>
+                                        <div class="timeline-content">
+                                            <h5>1. Análisis de Requisitos</h5>
+                                            <p>Estudiar la documentación funcional y entender qué se debe probar.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-info"></div>
+                                        <div class="timeline-content">
+                                            <h5>2. Planificación de Pruebas</h5>
+                                            <p>Definir estrategia, alcance, recursos y cronograma de las pruebas.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-warning"></div>
+                                        <div class="timeline-content">
+                                            <h5>3. Diseño de Casos de Prueba</h5>
+                                            <p>Crear casos de prueba detallados con pasos, datos y resultados esperados.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-success"></div>
+                                        <div class="timeline-content">
+                                            <h5>4. Ejecución de Pruebas</h5>
+                                            <p>Ejecutar los casos de prueba y documentar los resultados obtenidos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker bg-danger"></div>
+                                        <div class="timeline-content">
+                                            <h5>5. Reporte de Defectos</h5>
+                                            <p>Documentar y reportar los bugs encontrados con evidencias.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Ejemplo de Caso de Prueba</h3>
+                                <div class="card">
+                                    <div class="card-header bg-dark text-white">
+                                        <h6 class="mb-0">
+                                            <i class="bi bi-file-text me-2"></i>
+                                            Caso de Prueba: Login de Usuario
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-sm">
+                                            <tr>
+                                                <td class="fw-bold" style="width: 150px;">ID:</td>
+                                                <td>TC_LOGIN_001</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Título:</td>
+                                                <td>Verificar login con credenciales válidas</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Precondiciones:</td>
+                                                <td>Usuario registrado en el sistema</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Pasos:</td>
+                                                <td>
+                                                    1. Navegar a la página de login<br>
+                                                    2. Ingresar email válido<br>
+                                                    3. Ingresar contraseña correcta<br>
+                                                    4. Hacer clic en "Iniciar Sesión"
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold">Resultado Esperado:</td>
+                                                <td>El usuario es redirigido al dashboard principal</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card bg-light">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">
+                                            <i class="bi bi-tools me-2"></i>Herramientas Útiles
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <i class="bi bi-bug text-danger me-2"></i>
+                                                <strong>Jira:</strong> Gestión de bugs
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="bi bi-file-earmark-text text-primary me-2"></i>
+                                                <strong>TestRail:</strong> Gestión de casos
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="bi bi-camera text-success me-2"></i>
+                                                <strong>Snagit:</strong> Capturas de pantalla
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="bi bi-monitor text-info me-2"></i>
+                                                <strong>BrowserStack:</strong> Testing cross-browser
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">
+                                            <i class="bi bi-lightbulb me-2"></i>Tip Profesional
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text small">
+                                            Siempre documenta tus pruebas con capturas de pantalla 
+                                            y pasos detallados. Esto facilita la reproducción de 
+                                            bugs por parte del equipo de desarrollo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chapter-navigation mt-5">
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary" onclick="navigateToSection('capitulo1')">
+                                <i class="bi bi-arrow-left me-2"></i>Anterior
+                            </button>
+                            <button class="btn btn-primary" onclick="navigateToSection('capitulo3')">
+                                Siguiente<i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 3: Pruebas Automáticas -->
+                <section id="capitulo3" class="content-section">
+                    <div class="chapter-header">
+                        <h1 class="display-5 fw-bold text-primary mb-4">
+                            <i class="bi bi-3-circle-fill me-3"></i>
+                            Pruebas Automáticas de Software
+                        </h1>
+                        <div class="chapter-progress mb-4">
+                            <span class="badge bg-primary">Capítulo 3 de 3</span>
+                        </div>
+                    </div>
+
+                    <div class="chapter-content">
+                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <i class="bi bi-robot me-2"></i>
+                            <div>
+                                Descubre el poder de la automatización en las pruebas de software.
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h2 class="h3 mb-4">¿Qué son las Pruebas Automáticas?</h2>
+                                <p class="lead">
+                                    Las pruebas automáticas utilizan herramientas y scripts para ejecutar casos de prueba 
+                                    sin intervención manual, comparando resultados reales con los esperados de forma automática.
+                                </p>
+
+                                <h3 class="h4 mt-5 mb-3">Pirámide de Pruebas</h3>
+                                <div class="pyramid-container mb-4">
+                                    <div class="pyramid-level pyramid-e2e">
+                                        <span>E2E / UI Tests</span>
+                                        <small>Pocas, lentas, costosas</small>
+                                    </div>
+                                    <div class="pyramid-level pyramid-integration">
+                                        <span>Integration Tests</span>
+                                        <small>Moderadas, verifican interacciones</small>
+                                    </div>
+                                    <div class="pyramid-level pyramid-unit">
+                                        <span>Unit Tests</span>
+                                        <small>Muchas, rápidas, económicas</small>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Frameworks y Herramientas Populares</h3>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <i class="bi bi-code-square text-primary me-2"></i>
+                                                    Para JavaScript
+                                                </h5>
+                                                <ul class="mb-0">
+                                                    <li><strong>Jest:</strong> Testing framework completo</li>
+                                                    <li><strong>Cypress:</strong> E2E testing moderno</li>
+                                                    <li><strong>Playwright:</strong> Cross-browser automation</li>
+                                                    <li><strong>Mocha + Chai:</strong> Flexible y expresivo</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <i class="bi bi-terminal text-success me-2"></i>
+                                                    Para Python
+                                                </h5>
+                                                <ul class="mb-0">
+                                                    <li><strong>pytest:</strong> Framework principal</li>
+                                                    <li><strong>Selenium:</strong> Automatización web</li>
+                                                    <li><strong>unittest:</strong> Biblioteca estándar</li>
+                                                    <li><strong>Robot Framework:</strong> Keyword-driven</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="h4 mt-5 mb-3">Ejemplo de Prueba Automatizada</h3>
+                                <p>Aquí tienes un ejemplo básico de una prueba unitaria en JavaScript usando Jest:</p>
+                                
+                                <pre><code class="language-javascript">// calculator.js
+function add(a, b) {
+    return a + b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+module.exports = { add, multiply };
+
+// calculator.test.js
+const { add, multiply } = require('./calculator');
+
+describe('Calculator Functions', () => {
+    test('should add two numbers correctly', () => {
+        expect(add(2, 3)).toBe(5);
+        expect(add(-1, 1)).toBe(0);
+        expect(add(0, 0)).toBe(0);
+    });
+
+    test('should multiply two numbers correctly', () => {
+        expect(multiply(3, 4)).toBe(12);
+        expect(multiply(-2, 5)).toBe(-10);
+        expect(multiply(0, 100)).toBe(0);
+    });
+});</code></pre>
+
+                                <h3 class="h4 mt-5 mb-3">Mejores Prácticas</h3>
+                                <div class="accordion" id="bestPracticesAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#practice1">
+                                                <i class="bi bi-1-circle me-2"></i>Principio AAA (Arrange, Act, Assert)
+                                            </button>
+                                        </h2>
+                                        <div id="practice1" class="accordion-collapse collapse show" data-bs-parent="#bestPracticesAccordion">
+                                            <div class="accordion-body">
+                                                <strong>Arrange:</strong> Configura los datos y condiciones iniciales.<br>
+                                                <strong>Act:</strong> Ejecuta la funcionalidad que se está probando.<br>
+                                                <strong>Assert:</strong> Verifica que el resultado sea el esperado.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#practice2">
+                                                <i class="bi bi-2-circle me-2"></i>Pruebas Independientes
+                                            </button>
+                                        </h2>
+                                        <div id="practice2" class="accordion-collapse collapse" data-bs-parent="#bestPracticesAccordion">
+                                            <div class="accordion-body">
+                                                Cada prueba debe ser independiente y no depender del estado o resultado de otras pruebas.
+                                                Esto garantiza que las pruebas sean confiables y se puedan ejecutar en cualquier orden.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#practice3">
+                                                <i class="bi bi-3-circle me-2"></i>Nombres Descriptivos
+                                            </button>
+                                        </h2>
+                                        <div id="practice3" class="accordion-collapse collapse" data-bs-parent="#bestPracticesAccordion">
+                                            <div class="accordion-body">
+                                                Los nombres de las pruebas deben ser descriptivos y explicar claramente qué se está probando
+                                                y cuál es el comportamiento esperado. Esto facilita el mantenimiento y la comprensión.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card bg-light">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">
+                                            <i class="bi bi-speedometer2 me-2"></i>Métricas Importantes
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <dl>
+                                            <dt>Code Coverage</dt>
+                                            <dd class="small">Porcentaje de código cubierto por pruebas</dd>
+                                            
+                                            <dt>Test Execution Time</dt>
+                                            <dd class="small">Tiempo total de ejecución de la suite</dd>
+                                            
+                                            <dt>Flaky Tests</dt>
+                                            <dd class="small">Pruebas que fallan inconsistentemente</dd>
+                                            
+                                            <dt>Pass Rate</dt>
+                                            <dd class="small">Porcentaje de pruebas que pasan exitosamente</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">
+                                            <i class="bi bi-trophy me-2"></i>Integración Continua
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text small">
+                                            Las pruebas automáticas son fundamentales en CI/CD. 
+                                            Ejecuta tus pruebas en cada commit para detectar 
+                                            problemas tempranamente.
+                                        </p>
+                                        <div class="text-center">
+                                            <i class="bi bi-diagram-3 display-6 text-muted"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mt-4 border-success">
+                                    <div class="card-body text-center">
+                                        <h6 class="card-title text-success">¡Felicitaciones!</h6>
+                                        <p class="card-text small">
+                                            Has completado todos los capítulos de la guía.
+                                        </p>
+                                        <button class="btn btn-success btn-sm" onclick="showCompletionModal()">
+                                            <i class="bi bi-award"></i> Ver Certificado
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chapter-navigation mt-5">
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary" onclick="navigateToSection('capitulo2')">
+                                <i class="bi bi-arrow-left me-2"></i>Anterior
+                            </button>
+                            <button class="btn btn-success" onclick="navigateToSection('home')">
+                                <i class="bi bi-house-fill me-2"></i>Finalizar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </main>
+
+    <!-- Completion Modal -->
+    <div class="modal fade" id="completionModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-trophy-fill me-2"></i>
+                        ¡Felicitaciones!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-award display-1 text-warning"></i>
+                    </div>
+                    <h4>Has completado la Guía Interactiva</h4>
+                    <p class="text-muted">
+                        Ahora tienes conocimientos sólidos sobre pruebas de software, 
+                        desde conceptos básicos hasta automatización avanzada.
+                    </p>
+                    <div class="mt-4">
+                        <button class="btn btn-primary me-2" onclick="navigateToSection('home')" data-bs-dismiss="modal">
+                            <i class="bi bi-house-fill me-1"></i>Volver al Inicio
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="resetProgress()" data-bs-dismiss="modal">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Reiniciar Guía
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary btn-floating" onclick="scrollToTop()">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
